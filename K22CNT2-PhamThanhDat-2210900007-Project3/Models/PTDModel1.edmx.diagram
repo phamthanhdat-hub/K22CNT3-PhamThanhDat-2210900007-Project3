@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d2e18c7e51ee4b02b45905f104bd82f0" Name="Diagram1">
+        <EntityTypeShape EntityType="K22CNT2_PhamThanhDat_Project3Model.PTDBaoTri" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="K22CNT2_PhamThanhDat_Project3Model.PTDLichSuDung" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="K22CNT2_PhamThanhDat_Project3Model.PTDNguoiDung" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="K22CNT2_PhamThanhDat_Project3Model.PTDQuanTri" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="K22CNT2_PhamThanhDat_Project3Model.PTDTrangTB" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="K22CNT2_PhamThanhDat_Project3Model.FK__PTDBaoTri__PTDTh__1CBC4616" ManuallyRouted="false" />
+        <AssociationConnector Association="K22CNT2_PhamThanhDat_Project3Model.FK__PTDLichSu__PTDNg__208CD6FA" ManuallyRouted="false" />
+        <AssociationConnector Association="K22CNT2_PhamThanhDat_Project3Model.FK__PTDLichSu__PTDTh__1F98B2C1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

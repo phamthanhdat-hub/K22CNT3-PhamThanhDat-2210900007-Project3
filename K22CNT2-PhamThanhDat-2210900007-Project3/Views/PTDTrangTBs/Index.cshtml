@@ -1,0 +1,70 @@
+﻿@model IEnumerable<K22CNT2_PhamThanhDat_2210900007_Project3.Models.PTDTrangTB>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDTenThietBi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDAnh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDMoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDSoLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDTinhTrang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDNgayBaoTriTiepTheo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDBaoTri.PTDMoTaBaoTri)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDTenThietBi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDAnh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDMoTa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDSoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDTinhTrang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDNgayBaoTriTiepTheo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDBaoTri.PTDMoTaBaoTri)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

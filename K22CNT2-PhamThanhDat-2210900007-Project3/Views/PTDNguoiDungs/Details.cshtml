@@ -1,0 +1,51 @@
+﻿@model K22CNT2_PhamThanhDat_2210900007_Project3.Models.PTDNguoiDung
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PTDNguoiDung</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDVaiTro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDVaiTro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDMatKhau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDMatKhau)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

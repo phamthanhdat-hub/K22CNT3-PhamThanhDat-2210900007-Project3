@@ -1,0 +1,52 @@
+﻿@model IEnumerable<K22CNT2_PhamThanhDat_2210900007_Project3.Models.PTDNguoiDung>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDVaiTro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTDMatKhau)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDTen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDVaiTro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTDMatKhau)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="K22CNT2_PhamThanhDat_Project3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="PTDBaoTri">
+    <Key>
+      <PropertyRef Name="PTDThietBiID" />
+    </Key>
+    <Property Name="PTDThietBiID" Type="Int32" Nullable="false" />
+    <Property Name="PTDNgayBaoTri" Type="DateTime" Precision="0" />
+    <Property Name="PTDMoTaBaoTri" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PTDChiPhi" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PTDNguoiThucHien" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PTDTrangTB" Relationship="Self.FK__PTDBaoTri__PTDTh__1CBC4616" FromRole="PTDBaoTri" ToRole="PTDTrangTB" />
+  </EntityType>
+  <EntityType Name="PTDLichSuDung">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="PTDThietBiID" Type="Int32" />
+    <Property Name="PTDNguoiDungID" Type="Int32" />
+    <Property Name="PTDNgaySuDung" Type="DateTime" Precision="0" />
+    <Property Name="PTDMucDichSuDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PTDNguoiDung" Relationship="Self.FK__PTDLichSu__PTDNg__208CD6FA" FromRole="PTDLichSuDung" ToRole="PTDNguoiDung" />
+    <NavigationProperty Name="PTDTrangTB" Relationship="Self.FK__PTDLichSu__PTDTh__1F98B2C1" FromRole="PTDLichSuDung" ToRole="PTDTrangTB" />
+  </EntityType>
+  <EntityType Name="PTDNguoiDung">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="PTDTen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PTDEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PTDVaiTro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PTDMatKhau" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PTDLichSuDung" Relationship="Self.FK__PTDLichSu__PTDNg__208CD6FA" FromRole="PTDNguoiDung" ToRole="PTDLichSuDung" />
+  </EntityType>
+  <EntityType Name="PTDQuanTri">
+    <Key>
+      <PropertyRef Name="PTDTaikhoan" />
+    </Key>
+    <Property Name="PTDTaikhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PTDTrangthai" Type="Byte" />
+  </EntityType>
+  <EntityType Name="PTDTrangTB">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="PTDTenThietBi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PTDAnh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PTDMoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PTDSoLuong" Type="Int32" />
+    <Property Name="PTDTinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PTDNgayBaoTriTiepTheo" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="PTDBaoTri" Relationship="Self.FK__PTDBaoTri__PTDTh__1CBC4616" FromRole="PTDTrangTB" ToRole="PTDBaoTri" />
+    <NavigationProperty Name="PTDLichSuDung" Relationship="Self.FK__PTDLichSu__PTDTh__1F98B2C1" FromRole="PTDTrangTB" ToRole="PTDLichSuDung" />
+  </EntityType>
+  <Association Name="FK__PTDBaoTri__PTDTh__1CBC4616">
+    <End Role="PTDTrangTB" Type="Self.PTDTrangTB" Multiplicity="1" />
+    <End Role="PTDBaoTri" Type="Self.PTDBaoTri" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PTDTrangTB">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PTDBaoTri">
+        <PropertyRef Name="PTDThietBiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PTDLichSu__PTDNg__208CD6FA">
+    <End Role="PTDNguoiDung" Type="Self.PTDNguoiDung" Multiplicity="0..1" />
+    <End Role="PTDLichSuDung" Type="Self.PTDLichSuDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PTDNguoiDung">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PTDLichSuDung">
+        <PropertyRef Name="PTDNguoiDungID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PTDLichSu__PTDTh__1F98B2C1">
+    <End Role="PTDTrangTB" Type="Self.PTDTrangTB" Multiplicity="0..1" />
+    <End Role="PTDLichSuDung" Type="Self.PTDLichSuDung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PTDTrangTB">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PTDLichSuDung">
+        <PropertyRef Name="PTDThietBiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="K22CNT2_PhamThanhDat_Project3Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PTDBaoTri" EntityType="Self.PTDBaoTri" />
+    <EntitySet Name="PTDLichSuDung" EntityType="Self.PTDLichSuDung" />
+    <EntitySet Name="PTDNguoiDung" EntityType="Self.PTDNguoiDung" />
+    <EntitySet Name="PTDQuanTri" EntityType="Self.PTDQuanTri" />
+    <EntitySet Name="PTDTrangTB" EntityType="Self.PTDTrangTB" />
+    <AssociationSet Name="FK__PTDBaoTri__PTDTh__1CBC4616" Association="Self.FK__PTDBaoTri__PTDTh__1CBC4616">
+      <End Role="PTDTrangTB" EntitySet="PTDTrangTB" />
+      <End Role="PTDBaoTri" EntitySet="PTDBaoTri" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PTDLichSu__PTDNg__208CD6FA" Association="Self.FK__PTDLichSu__PTDNg__208CD6FA">
+      <End Role="PTDNguoiDung" EntitySet="PTDNguoiDung" />
+      <End Role="PTDLichSuDung" EntitySet="PTDLichSuDung" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PTDLichSu__PTDTh__1F98B2C1" Association="Self.FK__PTDLichSu__PTDTh__1F98B2C1">
+      <End Role="PTDTrangTB" EntitySet="PTDTrangTB" />
+      <End Role="PTDLichSuDung" EntitySet="PTDLichSuDung" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

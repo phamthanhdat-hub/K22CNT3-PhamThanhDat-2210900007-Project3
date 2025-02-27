@@ -1,0 +1,59 @@
+﻿@model K22CNT2_PhamThanhDat_2210900007_Project3.Models.PTDBaoTri
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PTDBaoTri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDNgayBaoTri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDNgayBaoTri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDMoTaBaoTri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDMoTaBaoTri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDChiPhi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDChiPhi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDNguoiThucHien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDNguoiThucHien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDTrangTB.PTDTenThietBi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDTrangTB.PTDTenThietBi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PTDThietBiID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

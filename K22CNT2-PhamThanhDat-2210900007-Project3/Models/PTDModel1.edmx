@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="K22CNT2_PhamThanhDat_Project3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PTDBaoTri">
+          <Key>
+            <PropertyRef Name="PTDThietBiID" />
+          </Key>
+          <Property Name="PTDThietBiID" Type="int" Nullable="false" />
+          <Property Name="PTDNgayBaoTri" Type="date" />
+          <Property Name="PTDMoTaBaoTri" Type="text" />
+          <Property Name="PTDChiPhi" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PTDNguoiThucHien" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PTDLichSuDung">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="PTDThietBiID" Type="int" />
+          <Property Name="PTDNguoiDungID" Type="int" />
+          <Property Name="PTDNgaySuDung" Type="date" />
+          <Property Name="PTDMucDichSuDung" Type="text" />
+        </EntityType>
+        <EntityType Name="PTDNguoiDung">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="PTDTen" Type="varchar" MaxLength="100" />
+          <Property Name="PTDEmail" Type="varchar" MaxLength="100" />
+          <Property Name="PTDVaiTro" Type="varchar" MaxLength="50" />
+          <Property Name="PTDMatKhau" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="PTDQuanTri">
+          <Key>
+            <PropertyRef Name="PTDTaikhoan" />
+          </Key>
+          <Property Name="PTDTaikhoan" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PTDTrangthai" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="PTDTrangTB">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="PTDTenThietBi" Type="varchar" MaxLength="100" />
+          <Property Name="PTDAnh" Type="nvarchar" MaxLength="255" />
+          <Property Name="PTDMoTa" Type="text" />
+          <Property Name="PTDSoLuong" Type="int" />
+          <Property Name="PTDTinhTrang" Type="varchar" MaxLength="50" />
+          <Property Name="PTDNgayBaoTriTiepTheo" Type="date" />
+        </EntityType>
+        <Association Name="FK__PTDBaoTri__PTDTh__1CBC4616">
+          <End Role="PTDTrangTB" Type="Self.PTDTrangTB" Multiplicity="1" />
+          <End Role="PTDBaoTri" Type="Self.PTDBaoTri" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PTDTrangTB">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PTDBaoTri">
+              <PropertyRef Name="PTDThietBiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PTDLichSu__PTDNg__208CD6FA">
+          <End Role="PTDNguoiDung" Type="Self.PTDNguoiDung" Multiplicity="0..1" />
+          <End Role="PTDLichSuDung" Type="Self.PTDLichSuDung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTDNguoiDung">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PTDLichSuDung">
+              <PropertyRef Name="PTDNguoiDungID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PTDLichSu__PTDTh__1F98B2C1">
+          <End Role="PTDTrangTB" Type="Self.PTDTrangTB" Multiplicity="0..1" />
+          <End Role="PTDLichSuDung" Type="Self.PTDLichSuDung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTDTrangTB">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PTDLichSuDung">
+              <PropertyRef Name="PTDThietBiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="K22CNT2_PhamThanhDat_Project3ModelStoreContainer">
+          <EntitySet Name="PTDBaoTri" EntityType="Self.PTDBaoTri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PTDLichSuDung" EntityType="Self.PTDLichSuDung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PTDNguoiDung" EntityType="Self.PTDNguoiDung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PTDQuanTri" EntityType="Self.PTDQuanTri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PTDTrangTB" EntityType="Self.PTDTrangTB" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__PTDBaoTri__PTDTh__1CBC4616" Association="Self.FK__PTDBaoTri__PTDTh__1CBC4616">
+            <End Role="PTDTrangTB" EntitySet="PTDTrangTB" />
+            <End Role="PTDBaoTri" EntitySet="PTDBaoTri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PTDLichSu__PTDNg__208CD6FA" Association="Self.FK__PTDLichSu__PTDNg__208CD6FA">
+            <End Role="PTDNguoiDung" EntitySet="PTDNguoiDung" />
+            <End Role="PTDLichSuDung" EntitySet="PTDLichSuDung" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PTDLichSu__PTDTh__1F98B2C1" Association="Self.FK__PTDLichSu__PTDTh__1F98B2C1">
+            <End Role="PTDTrangTB" EntitySet="PTDTrangTB" />
+            <End Role="PTDLichSuDung" EntitySet="PTDLichSuDung" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="K22CNT2_PhamThanhDat_Project3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PTDBaoTri">
+          <Key>
+            <PropertyRef Name="PTDThietBiID" />
+          </Key>
+          <Property Name="PTDThietBiID" Type="Int32" Nullable="false" />
+          <Property Name="PTDNgayBaoTri" Type="DateTime" Precision="0" />
+          <Property Name="PTDMoTaBaoTri" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PTDChiPhi" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PTDNguoiThucHien" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PTDTrangTB" Relationship="Self.FK__PTDBaoTri__PTDTh__1CBC4616" FromRole="PTDBaoTri" ToRole="PTDTrangTB" />
+        </EntityType>
+        <EntityType Name="PTDLichSuDung">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PTDThietBiID" Type="Int32" />
+          <Property Name="PTDNguoiDungID" Type="Int32" />
+          <Property Name="PTDNgaySuDung" Type="DateTime" Precision="0" />
+          <Property Name="PTDMucDichSuDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PTDNguoiDung" Relationship="Self.FK__PTDLichSu__PTDNg__208CD6FA" FromRole="PTDLichSuDung" ToRole="PTDNguoiDung" />
+          <NavigationProperty Name="PTDTrangTB" Relationship="Self.FK__PTDLichSu__PTDTh__1F98B2C1" FromRole="PTDLichSuDung" ToRole="PTDTrangTB" />
+        </EntityType>
+        <EntityType Name="PTDNguoiDung">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PTDTen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PTDEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PTDVaiTro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PTDMatKhau" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PTDLichSuDung" Relationship="Self.FK__PTDLichSu__PTDNg__208CD6FA" FromRole="PTDNguoiDung" ToRole="PTDLichSuDung" />
+        </EntityType>
+        <EntityType Name="PTDQuanTri">
+          <Key>
+            <PropertyRef Name="PTDTaikhoan" />
+          </Key>
+          <Property Name="PTDTaikhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PTDTrangthai" Type="Byte" />
+        </EntityType>
+        <EntityType Name="PTDTrangTB">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PTDTenThietBi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PTDAnh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PTDMoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PTDSoLuong" Type="Int32" />
+          <Property Name="PTDTinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PTDNgayBaoTriTiepTheo" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="PTDBaoTri" Relationship="Self.FK__PTDBaoTri__PTDTh__1CBC4616" FromRole="PTDTrangTB" ToRole="PTDBaoTri" />
+          <NavigationProperty Name="PTDLichSuDung" Relationship="Self.FK__PTDLichSu__PTDTh__1F98B2C1" FromRole="PTDTrangTB" ToRole="PTDLichSuDung" />
+        </EntityType>
+        <Association Name="FK__PTDBaoTri__PTDTh__1CBC4616">
+          <End Role="PTDTrangTB" Type="Self.PTDTrangTB" Multiplicity="1" />
+          <End Role="PTDBaoTri" Type="Self.PTDBaoTri" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PTDTrangTB">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PTDBaoTri">
+              <PropertyRef Name="PTDThietBiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PTDLichSu__PTDNg__208CD6FA">
+          <End Role="PTDNguoiDung" Type="Self.PTDNguoiDung" Multiplicity="0..1" />
+          <End Role="PTDLichSuDung" Type="Self.PTDLichSuDung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTDNguoiDung">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PTDLichSuDung">
+              <PropertyRef Name="PTDNguoiDungID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PTDLichSu__PTDTh__1F98B2C1">
+          <End Role="PTDTrangTB" Type="Self.PTDTrangTB" Multiplicity="0..1" />
+          <End Role="PTDLichSuDung" Type="Self.PTDLichSuDung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PTDTrangTB">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PTDLichSuDung">
+              <PropertyRef Name="PTDThietBiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="K22CNT2_PhamThanhDat_Project3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PTDBaoTri" EntityType="Self.PTDBaoTri" />
+          <EntitySet Name="PTDLichSuDung" EntityType="Self.PTDLichSuDung" />
+          <EntitySet Name="PTDNguoiDung" EntityType="Self.PTDNguoiDung" />
+          <EntitySet Name="PTDQuanTri" EntityType="Self.PTDQuanTri" />
+          <EntitySet Name="PTDTrangTB" EntityType="Self.PTDTrangTB" />
+          <AssociationSet Name="FK__PTDBaoTri__PTDTh__1CBC4616" Association="Self.FK__PTDBaoTri__PTDTh__1CBC4616">
+            <End Role="PTDTrangTB" EntitySet="PTDTrangTB" />
+            <End Role="PTDBaoTri" EntitySet="PTDBaoTri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PTDLichSu__PTDNg__208CD6FA" Association="Self.FK__PTDLichSu__PTDNg__208CD6FA">
+            <End Role="PTDNguoiDung" EntitySet="PTDNguoiDung" />
+            <End Role="PTDLichSuDung" EntitySet="PTDLichSuDung" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PTDLichSu__PTDTh__1F98B2C1" Association="Self.FK__PTDLichSu__PTDTh__1F98B2C1">
+            <End Role="PTDTrangTB" EntitySet="PTDTrangTB" />
+            <End Role="PTDLichSuDung" EntitySet="PTDLichSuDung" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="K22CNT2_PhamThanhDat_Project3ModelStoreContainer" CdmEntityContainer="K22CNT2_PhamThanhDat_Project3Entities">
+          <EntitySetMapping Name="PTDBaoTri">
+            <EntityTypeMapping TypeName="K22CNT2_PhamThanhDat_Project3Model.PTDBaoTri">
+              <MappingFragment StoreEntitySet="PTDBaoTri">
+                <ScalarProperty Name="PTDThietBiID" ColumnName="PTDThietBiID" />
+                <ScalarProperty Name="PTDNgayBaoTri" ColumnName="PTDNgayBaoTri" />
+                <ScalarProperty Name="PTDMoTaBaoTri" ColumnName="PTDMoTaBaoTri" />
+                <ScalarProperty Name="PTDChiPhi" ColumnName="PTDChiPhi" />
+                <ScalarProperty Name="PTDNguoiThucHien" ColumnName="PTDNguoiThucHien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PTDLichSuDung">
+            <EntityTypeMapping TypeName="K22CNT2_PhamThanhDat_Project3Model.PTDLichSuDung">
+              <MappingFragment StoreEntitySet="PTDLichSuDung">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PTDThietBiID" ColumnName="PTDThietBiID" />
+                <ScalarProperty Name="PTDNguoiDungID" ColumnName="PTDNguoiDungID" />
+                <ScalarProperty Name="PTDNgaySuDung" ColumnName="PTDNgaySuDung" />
+                <ScalarProperty Name="PTDMucDichSuDung" ColumnName="PTDMucDichSuDung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PTDNguoiDung">
+            <EntityTypeMapping TypeName="K22CNT2_PhamThanhDat_Project3Model.PTDNguoiDung">
+              <MappingFragment StoreEntitySet="PTDNguoiDung">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PTDTen" ColumnName="PTDTen" />
+                <ScalarProperty Name="PTDEmail" ColumnName="PTDEmail" />
+                <ScalarProperty Name="PTDVaiTro" ColumnName="PTDVaiTro" />
+                <ScalarProperty Name="PTDMatKhau" ColumnName="PTDMatKhau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PTDQuanTri">
+            <EntityTypeMapping TypeName="K22CNT2_PhamThanhDat_Project3Model.PTDQuanTri">
+              <MappingFragment StoreEntitySet="PTDQuanTri">
+                <ScalarProperty Name="PTDTaikhoan" ColumnName="PTDTaikhoan" />
+                <ScalarProperty Name="PTDTrangthai" ColumnName="PTDTrangthai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PTDTrangTB">
+            <EntityTypeMapping TypeName="K22CNT2_PhamThanhDat_Project3Model.PTDTrangTB">
+              <MappingFragment StoreEntitySet="PTDTrangTB">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PTDTenThietBi" ColumnName="PTDTenThietBi" />
+                <ScalarProperty Name="PTDAnh" ColumnName="PTDAnh" />
+                <ScalarProperty Name="PTDMoTa" ColumnName="PTDMoTa" />
+                <ScalarProperty Name="PTDSoLuong" ColumnName="PTDSoLuong" />
+                <ScalarProperty Name="PTDTinhTrang" ColumnName="PTDTinhTrang" />
+                <ScalarProperty Name="PTDNgayBaoTriTiepTheo" ColumnName="PTDNgayBaoTriTiepTheo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

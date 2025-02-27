@@ -1,0 +1,51 @@
+﻿@model K22CNT2_PhamThanhDat_2210900007_Project3.Models.PTDLichSuDung
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PTDLichSuDung</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDNgaySuDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDNgaySuDung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDMucDichSuDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDMucDichSuDung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDNguoiDung.PTDTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDNguoiDung.PTDTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTDTrangTB.PTDTenThietBi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTDTrangTB.PTDTenThietBi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

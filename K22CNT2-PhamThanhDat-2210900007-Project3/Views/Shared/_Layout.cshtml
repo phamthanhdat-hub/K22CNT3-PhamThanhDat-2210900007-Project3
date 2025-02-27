@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - PhamThanhDat-2210900007-project3 </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/Content/trangchu.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Pham Thanh Dat", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("PTDQuanTri", "Index", "PTDQuanTris")</li>
+                    <li>@Html.ActionLink("PTDNguoiDung", "Index", "PTDNguoiDungs")</li>
+                    <li>@Html.ActionLink("PTDTrangTB", "Index", "PTDTrangTBs")</li>
+                    <li>@Html.ActionLink("PTDLichSuDung", "Index", "PTDLichSuDungs")</li>
+                    <li>@Html.ActionLink("PTDBaoTri", "Index", "PTDBaoTris")</li>
+                  
+
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+
+                    @Html.ActionLink("Đăng ký", "Register", "PTDQuanTris", new { area = "" }, new { @class = "btn btn-primary mx-1" })
+                    @Html.ActionLink("Đăng nhập", "Login", "PTDQuanTris", new { area = "" }, new { @class = "btn btn-success" })
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

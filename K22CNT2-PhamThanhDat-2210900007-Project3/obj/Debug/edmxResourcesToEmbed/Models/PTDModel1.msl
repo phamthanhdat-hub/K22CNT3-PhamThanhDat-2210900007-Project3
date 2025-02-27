@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="K22CNT2_PhamThanhDat_Project3ModelStoreContainer" CdmEntityContainer="K22CNT2_PhamThanhDat_Project3Entities">
+    <EntitySetMapping Name="PTDBaoTri">
+      <EntityTypeMapping TypeName="K22CNT2_PhamThanhDat_Project3Model.PTDBaoTri">
+        <MappingFragment StoreEntitySet="PTDBaoTri">
+          <ScalarProperty Name="PTDThietBiID" ColumnName="PTDThietBiID" />
+          <ScalarProperty Name="PTDNgayBaoTri" ColumnName="PTDNgayBaoTri" />
+          <ScalarProperty Name="PTDMoTaBaoTri" ColumnName="PTDMoTaBaoTri" />
+          <ScalarProperty Name="PTDChiPhi" ColumnName="PTDChiPhi" />
+          <ScalarProperty Name="PTDNguoiThucHien" ColumnName="PTDNguoiThucHien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PTDLichSuDung">
+      <EntityTypeMapping TypeName="K22CNT2_PhamThanhDat_Project3Model.PTDLichSuDung">
+        <MappingFragment StoreEntitySet="PTDLichSuDung">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PTDThietBiID" ColumnName="PTDThietBiID" />
+          <ScalarProperty Name="PTDNguoiDungID" ColumnName="PTDNguoiDungID" />
+          <ScalarProperty Name="PTDNgaySuDung" ColumnName="PTDNgaySuDung" />
+          <ScalarProperty Name="PTDMucDichSuDung" ColumnName="PTDMucDichSuDung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PTDNguoiDung">
+      <EntityTypeMapping TypeName="K22CNT2_PhamThanhDat_Project3Model.PTDNguoiDung">
+        <MappingFragment StoreEntitySet="PTDNguoiDung">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PTDTen" ColumnName="PTDTen" />
+          <ScalarProperty Name="PTDEmail" ColumnName="PTDEmail" />
+          <ScalarProperty Name="PTDVaiTro" ColumnName="PTDVaiTro" />
+          <ScalarProperty Name="PTDMatKhau" ColumnName="PTDMatKhau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PTDQuanTri">
+      <EntityTypeMapping TypeName="K22CNT2_PhamThanhDat_Project3Model.PTDQuanTri">
+        <MappingFragment StoreEntitySet="PTDQuanTri">
+          <ScalarProperty Name="PTDTaikhoan" ColumnName="PTDTaikhoan" />
+          <ScalarProperty Name="PTDTrangthai" ColumnName="PTDTrangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PTDTrangTB">
+      <EntityTypeMapping TypeName="K22CNT2_PhamThanhDat_Project3Model.PTDTrangTB">
+        <MappingFragment StoreEntitySet="PTDTrangTB">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PTDTenThietBi" ColumnName="PTDTenThietBi" />
+          <ScalarProperty Name="PTDAnh" ColumnName="PTDAnh" />
+          <ScalarProperty Name="PTDMoTa" ColumnName="PTDMoTa" />
+          <ScalarProperty Name="PTDSoLuong" ColumnName="PTDSoLuong" />
+          <ScalarProperty Name="PTDTinhTrang" ColumnName="PTDTinhTrang" />
+          <ScalarProperty Name="PTDNgayBaoTriTiepTheo" ColumnName="PTDNgayBaoTriTiepTheo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
