@@ -1,140 +1,71 @@
 package com.springmvc.beans;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class PTDTrangTB {
-	
+
     private int id;
+    private String ptDTenThietBi;
+    private String ptDAnh;
+    private String ptDMoTa;
+    private int ptDSoLuong;
+    private String ptDTinhTrang;
+    private Date ptDNgayBaoTriTiepTheo;
 
-    
-    private String ptdTenThietBi;
+    // Getters and Setters
+    public int getId() {
+        return id;
+    }
 
-   
-    private String ptdAnh;
+    public void setId(int id) {
+        this.id = id;
+    }
 
-  
-    private String ptdMoTa;
+    public String getPtDTenThietBi() {
+        return ptDTenThietBi;
+    }
 
-   
-    private int ptdSoLuong;
+    public void setPtDTenThietBi(String ptDTenThietBi) {
+        this.ptDTenThietBi = ptDTenThietBi;
+    }
 
-  
-    private String ptdTinhTrang;
+    public String getPtDAnh() {
+        return ptDAnh;
+    }
 
-    
-    private Date ptdNgayBaoTriTiepTheo;
+    public void setPtDAnh(String ptDAnh) {
+        this.ptDAnh = ptDAnh;
+    }
 
+    public String getPtDMoTa() {
+        return ptDMoTa;
+    }
 
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
+    public void setPtDMoTa(String ptDMoTa) {
+        this.ptDMoTa = ptDMoTa;
+    }
 
+    public int getPtDSoLuong() {
+        return ptDSoLuong;
+    }
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setPtDSoLuong(int ptDSoLuong) {
+        this.ptDSoLuong = ptDSoLuong;
+    }
 
+    public String getPtDTinhTrang() {
+        return ptDTinhTrang;
+    }
 
-	/**
-	 * @return the ptdTenThietBi
-	 */
-	public String getPtdTenThietBi() {
-		return ptdTenThietBi;
-	}
+    public void setPtDTinhTrang(String ptDTinhTrang) {
+        this.ptDTinhTrang = ptDTinhTrang;
+    }
 
+    public Date getPtDNgayBaoTriTiepTheo() {
+        return ptDNgayBaoTriTiepTheo;
+    }
 
-	/**
-	 * @param ptdTenThietBi the ptdTenThietBi to set
-	 */
-	public void setPtdTenThietBi(String ptdTenThietBi) {
-		this.ptdTenThietBi = ptdTenThietBi;
-	}
-
-
-	/**
-	 * @return the ptdAnh
-	 */
-	public String getPtdAnh() {
-		return ptdAnh;
-	}
-
-
-	/**
-	 * @param ptdAnh the ptdAnh to set
-	 */
-	public void setPtdAnh(String ptdAnh) {
-		this.ptdAnh = ptdAnh;
-	}
-
-
-	/**
-	 * @return the ptdMoTa
-	 */
-	public String getPtdMoTa() {
-		return ptdMoTa;
-	}
-
-
-	/**
-	 * @param ptdMoTa the ptdMoTa to set
-	 */
-	public void setPtdMoTa(String ptdMoTa) {
-		this.ptdMoTa = ptdMoTa;
-	}
-
-
-	/**
-	 * @return the ptdSoLuong
-	 */
-	public int getPtdSoLuong() {
-		return ptdSoLuong;
-	}
-
-
-	/**
-	 * @param ptdSoLuong the ptdSoLuong to set
-	 */
-	public void setPtdSoLuong(int ptdSoLuong) {
-		this.ptdSoLuong = ptdSoLuong;
-	}
-
-
-	/**
-	 * @return the ptdTinhTrang
-	 */
-	public String getPtdTinhTrang() {
-		return ptdTinhTrang;
-	}
-
-
-	/**
-	 * @param ptdTinhTrang the ptdTinhTrang to set
-	 */
-	public void setPtdTinhTrang(String ptdTinhTrang) {
-		this.ptdTinhTrang = ptdTinhTrang;
-	}
-
-
-	/**
-	 * @return the ptdNgayBaoTriTiepTheo
-	 */
-	public Date getPtdNgayBaoTriTiepTheo() {
-		return ptdNgayBaoTriTiepTheo;
-	}
-
-
-	/**
-	 * @param ptdNgayBaoTriTiepTheo the ptdNgayBaoTriTiepTheo to set
-	 */
-	public void setPtdNgayBaoTriTiepTheo(Date ptdNgayBaoTriTiepTheo) {
-		this.ptdNgayBaoTriTiepTheo = ptdNgayBaoTriTiepTheo;
-	}
-
-
+    public void setPtDNgayBaoTriTiepTheo(Date ptDNgayBaoTriTiepTheo) {
+        this.ptDNgayBaoTriTiepTheo = ptDNgayBaoTriTiepTheo;
+    }
 }

@@ -1,42 +1,24 @@
 package com.springmvc.beans;
 
 public class PTDQuanTri {
-	private String ptDTaikhoan;
 
-    
-    private short ptDTrangthai;
+    private String ptDTaikhoan;
+    private int ptDTrangthai;
 
+    // Getters and Setters
+    public String getPtDTaikhoan() {
+        return ptDTaikhoan;
+    }
 
-	/**
-	 * @return the ptDTaikhoan
-	 */
-	public String getPtDTaikhoan() {
-		return ptDTaikhoan;
-	}
+    public void setPtDTaikhoan(String ptDTaikhoan) {
+        this.ptDTaikhoan = ptDTaikhoan;
+    }
 
+    public int getPtDTrangthai() {
+        return ptDTrangthai;
+    }
 
-	/**
-	 * @param ptDTaikhoan the ptDTaikhoan to set
-	 */
-	public void setPtDTaikhoan(String ptDTaikhoan) {
-		this.ptDTaikhoan = ptDTaikhoan;
-	}
-
-
-	/**
-	 * @return the ptDTrangthai
-	 */
-	public short getPtDTrangthai() {
-		return ptDTrangthai;
-	}
-
-
-	/**
-	 * @param ptDTrangthai the ptDTrangthai to set
-	 */
-	public void setPtDTrangthai(short ptDTrangthai) {
-		this.ptDTrangthai = ptDTrangthai;
-	}
-	
-
+    public void setPtDTrangthai(int ptDTrangthai) {
+        this.ptDTrangthai = ptDTrangthai;
+    }
 }
